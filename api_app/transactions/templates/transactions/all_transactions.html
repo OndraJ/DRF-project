@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+                           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                           crossorigin="anonymous">
+    <meta charset="UTF-16">
+    <title>Transactions</title>
+</head>
+<div>
+    <table class="table table-bordered" style="width:50%" >
+        <tr>
+            <th>DateTime</th>
+            <th>Amount</th>
+            <th>Description</th>
+        </tr>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.timestamp }}</td>
+            {% if transaction.amount == max_amount %}
+            <td><mark style="color:green">{{ transaction.amount }}</mark></td>
+            {% else %} <td>{{ transaction.amount }}</td>
+            {% endif %}
+            <td>{{ transaction.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</html>
